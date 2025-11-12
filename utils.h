@@ -6,8 +6,10 @@ typedef long double LD;
 #include <map>
 #include <vector>
 #include <string>
-#include <unordered_set>
 #include <queue>
+#include <stack>
+#include <unordered_set>
+#include <unordered_map>
 
 #include <filesystem>
 #include <fstream>
@@ -16,5 +18,6 @@ typedef long double LD;
 
 #include <cmath>
 #include <cctype>
+#include <algorithm>
 
 #endif
