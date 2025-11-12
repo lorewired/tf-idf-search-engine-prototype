@@ -2,13 +2,9 @@
 
 int main() {
   using namespace std;
-  using namespace RankUpAlgorithm;
+  using namespace rank_up_algorithm;
 
-  print("Digite o diretório para alimentação: ");
-  string dir;
-  cin >> dir;
-
-  RankUpAlgorithm::Engine engine(dir);
+  rank_up_algorithm::engine engine("feeding");
 
   if (!engine.ready()) {
     system("clear");
@@ -24,23 +20,21 @@ int main() {
     string query;
     while (getline(cin, query) && query.empty());
 
-    if (query[0] == '0') {
-      break;
-    }
+    if (query[0] == '0') break;
     
-    vector<pair<LD, Document>> result = engine.search(query);
+    pair<vec, vector<pair<LD, vec>>> results = engine.search(query);
 
-    if (result.empty()) {
+    if (results.second.empty()) {
       println("\nResultado: Sua pesquisa não encontrou nenhum documento correspondente.");
       print("\nPressione qualquer tecla para continuar...");
       getchar();
       continue;
     }
 
-    for (int i = 0; i < result.size(); i++) {
-      println("\nResultado {} [SCORE {:.2f}] : {}", i + 1, result[i].first, result[i].second.literal());
+    for (int i = 0; i < results.second..size(); i++) {
+      println("\nResultado {} [SCORE {:.2f}] : {}", i + 1, results.second[i].first, results.second[i].second.content());
     }
-    
+
     print("\nPressione qualquer tecla para continuar...");
 
     getchar();
